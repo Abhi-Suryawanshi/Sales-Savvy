@@ -1,4 +1,6 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import '../styles/signUp.css';
 
 export default function Sign_up() {
   const [username, setUsername] = useState("");
@@ -7,6 +9,7 @@ export default function Sign_up() {
   const [gender, setGender] = useState("");
   const [dob, setDob] = useState("");
   const [role, setRole] = useState("");
+  const navigate = useNavigate();
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -31,7 +34,12 @@ export default function Sign_up() {
 
       const msg = await resp.text();
       alert(msg);
-    } catch (error) {
+      
+      if (msg === "User created successfully!") {
+        navigate('/sign_in'); 
+      }
+    } 
+    catch (error) {
       console.error("Error:", error);
       alert("Failed to submit data");
     }
@@ -39,8 +47,8 @@ export default function Sign_up() {
 
   return (
     <>
-        <h4>Sign up below</h4>
-        <form onSubmit={handleSubmit}>
+      <h4>Sign up below</h4>
+      <form onSubmit={handleSubmit}>
         <label>Username: </label>
         <input
           type="text"
@@ -126,5 +134,5 @@ export default function Sign_up() {
         <button type="submit">SIGN UP</button>
       </form>
     </>
-  )
+  );
 }

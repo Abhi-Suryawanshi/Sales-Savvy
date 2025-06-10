@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import '../styles/signIn.css'; // Assuming you have a CSS file for styling
 
 export default function Sign_in() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -22,7 +25,14 @@ export default function Sign_in() {
       });
 
       const msg = await resp.text();
-      alert(msg);
+      
+      if (msg === "admin") {
+        navigate('/admin_home'); // Redirect to admin home
+      } else if (msg === "customer") {
+        navigate('/customer_home'); // Redirect to customer home
+      } else {
+        alert(msg); // Show error message for invalid credentials
+      }
     } catch (error) {
       console.error("Error:", error);
       alert("Failed to submit data");

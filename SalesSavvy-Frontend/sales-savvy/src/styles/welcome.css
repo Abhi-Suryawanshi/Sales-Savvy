@@ -1,0 +1,38 @@
+/* Welcome.css */
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #F4E7E1;
+  color: #521C0D;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+h4 {
+  font-size: 2rem;
+  color: #D5451B;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  background-color: #FF9B45;
+  padding: 10px 20px;
+  margin: 10px auto;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-align: center;
+  width: 120px;
+}
+
+a:hover {
+  background-color: #D5451B;
+  transform: scale(1.05);
+}
