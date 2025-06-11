@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../styles/signUp.css';
 
 export default function Sign_up() {
   const [username, setUsername] = useState("");
