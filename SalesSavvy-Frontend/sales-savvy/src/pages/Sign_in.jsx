@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../styles/sign_in.css';
 
 export default function Sign_in() {
   const [username, setUsername] = useState("");
@@ -26,11 +27,11 @@ export default function Sign_in() {
       const msg = await resp.text();
       
       if (msg === "admin") {
-        navigate('/admin_home'); // Redirect to admin home
+        navigate('/admin_home');
       } else if (msg === "customer") {
-        navigate('/customer_home'); // Redirect to customer home
+        navigate('/customer_home');
       } else {
-        alert(msg); // Show error message for invalid credentials
+        alert(msg);
       }
     } catch (error) {
       console.error("Error:", error);
@@ -39,29 +40,39 @@ export default function Sign_in() {
   }
 
   return (
-    <>
-      <h4>Sign in below</h4>
-      <form onSubmit={handleSubmit}>
-        <label>Username: </label>
-        <input
-          type="text"
-          name="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <br /><br />
+    <div className="signin-container">
+      <h4>Sign In</h4>
+      <form className="signin-form" onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label>Username</label>
+          <input
+            type="text"
+            name="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
+        </div>
 
-        <label>Password: </label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <br /><br />
+        <div className="form-group">
+          <label>Password</label>
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
 
-        <button type="submit">SIGN IN</button>
+        <div className="forgot-link">
+          <a href="#">Forgot password?</a>
+        </div>
+
+        <button type="submit" className="submit-btn">
+          Sign In
+        </button>
       </form>
-    </>
+    </div>
   );
 }

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../styles/sign_up.css'; // Don't forget to import the CSS
 
 export default function Sign_up() {
   const [username, setUsername] = useState("");
@@ -45,93 +46,117 @@ export default function Sign_up() {
   }
 
   return (
-    <>
-      <h4>Sign up below</h4>
-      <form onSubmit={handleSubmit}>
-        <label>Username: </label>
-        <input
-          type="text"
-          name="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <br /><br />
+    <div className="signup-container">
+      <h4>Create Your Account</h4>
+      <form className="signup-form" onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label>Username</label>
+          <input
+            type="text"
+            name="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
+        </div>
 
-        <label>Email: </label>
-        <input
-          type="email"
-          name="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <br /><br />
+        <div className="form-group">
+          <label>Email</label>
+          <input
+            type="email"
+            name="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
 
-        <label>Password: </label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <br /><br />
+        <div className="form-group">
+          <label>Password</label>
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
 
-        <label>Gender: </label>
-        Male
-        <input
-          type="radio"
-          name="gender"
-          value="M"
-          checked={gender === "M"}
-          onChange={(e) => setGender(e.target.value)}
-        />
-        Female
-        <input
-          type="radio"
-          name="gender"
-          value="F"
-          checked={gender === "F"}
-          onChange={(e) => setGender(e.target.value)}
-        />
-        Other
-        <input
-          type="radio"
-          name="gender"
-          value="O"
-          checked={gender === "O"}
-          onChange={(e) => setGender(e.target.value)}
-        />
-        <br /><br />
+        <div className="form-group">
+          <label>Gender</label>
+          <div className="radio-group">
+            <label className="radio-option">
+              Male
+              <input
+                type="radio"
+                name="gender"
+                value="M"
+                checked={gender === "M"}
+                onChange={(e) => setGender(e.target.value)}
+              />
+            </label>
+            <label className="radio-option">
+              Female
+              <input
+                type="radio"
+                name="gender"
+                value="F"
+                checked={gender === "F"}
+                onChange={(e) => setGender(e.target.value)}
+              />
+            </label>
+            <label className="radio-option">
+              Other
+              <input
+                type="radio"
+                name="gender"
+                value="O"
+                checked={gender === "O"}
+                onChange={(e) => setGender(e.target.value)}
+              />
+            </label>
+          </div>
+        </div>
 
-        <label>DOB: </label>
-        <input
-          type="date"
-          name="dob"
-          value={dob}
-          onChange={(e) => setDob(e.target.value)}
-        />
-        <br /><br />
+        <div className="form-group">
+          <label>Date of Birth</label>
+          <input
+            type="date"
+            name="dob"
+            value={dob}
+            onChange={(e) => setDob(e.target.value)}
+            required
+          />
+        </div>
 
-        <label>Role: </label>
-        ADMIN
-        <input
-          type="radio"
-          name="role"
-          value="admin"
-          checked={role === "admin"}
-          onChange={(e) => setRole(e.target.value)}
-        />
-        CUSTOMER
-        <input
-          type="radio"
-          name="role"
-          value="customer"
-          checked={role === "customer"}
-          onChange={(e) => setRole(e.target.value)}
-        />
-        <br /><br />
+        <div className="form-group">
+          <label>Role</label>
+          <div className="radio-group">
+            <label className="radio-option">
+              ADMIN
+              <input
+                type="radio"
+                name="role"
+                value="admin"
+                checked={role === "admin"}
+                onChange={(e) => setRole(e.target.value)}
+              />
+            </label>
+            <label className="radio-option">
+              CUSTOMER
+              <input
+                type="radio"
+                name="role"
+                value="customer"
+                checked={role === "customer"}
+                onChange={(e) => setRole(e.target.value)}
+              />
+            </label>
+          </div>
+        </div>
 
-        <button type="submit">SIGN UP</button>
+        <button type="submit" className="submit-btn">SIGN UP</button>
       </form>
-    </>
+    </div>
   );
 }

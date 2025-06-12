@@ -1,15 +1,10 @@
 import React from "react";
+import "../styles/productcard.css";
 
-/**
- * Horizontal product card.
- * Expects a `product` object with:
- * { id, name, price, category, description, imageUrl }
- */
 export default function ProductCard({ product, onAddToCart }) {
   return (
     <div className="product-card">
       <div className="product-img-wrap">
-        {/* Fallback image if none provided */}
         <img
           src={product.imageUrl || "/placeholder.png"}
           alt={product.name}

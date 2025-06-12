@@ -1,0 +1,134 @@
+/* ProductCard.css */
+:root {
+  --primary: #4DA8DA;
+  --primary-dark: #3a8fc7;
+  --secondary: #80D8C3;
+  --accent: #FFD66B;
+  --light: #F5F5F5;
+  --text: #2D3748;
+  --text-light: #718096;
+}
+
+.product-card {
+  display: flex;
+  gap: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: all 0.2s ease;
+  border: 1px solid #eaeaea;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 2rem auto;
+  cursor: pointer;
+}
+
+.product-img-wrap {
+  flex: 0 0 300px;
+  height: 250px;
+  overflow: hidden;
+}
+
+.product-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover img {
+  transform: scale(1.03);
+}
+
+.product-info {
+  flex: 1;
+  padding: 2rem 2rem 2rem 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-title {
+  color: var(--text);
+  font-size: 1.6rem;
+  margin: 0 0 1rem 0;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.product-price {
+  color: var(--primary);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 1.5rem 0;
+}
+
+.product-desc {
+  color: var(--text-light);
+  line-height: 1.6;
+  margin: 0 0 2rem 0;
+  flex-grow: 1;
+  font-size: 1.05rem;
+}
+
+.btn {
+  padding: 0.8rem 2rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  font-size: 1rem;
+  align-self: flex-start;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .product-card {
+    max-width: 750px;
+  }
+  
+  .product-img-wrap {
+    flex: 0 0 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-card {
+    flex-direction: column;
+    max-width: 500px;
+    gap: 0;
+  }
+
+  .product-img-wrap {
+    flex: 0 0 250px;
+    width: 100%;
+  }
+
+  .product-info {
+    padding: 1.8rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .product-title {
+    font-size: 1.4rem;
+  }
+
+  .product-price {
+    font-size: 1.3rem;
+  }
+  
+  .product-desc {
+    font-size: 1rem;
+  }
+}

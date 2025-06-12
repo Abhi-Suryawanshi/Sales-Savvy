@@ -1,0 +1,167 @@
+/* SignIn.css */
+:root {
+  --primary: #4DA8DA;       /* Vibrant blue */
+  --primary-dark: #2E86AB;  /* Darker blue */
+  --secondary: #80D8C3;     /* Fresh mint */
+  --accent: #FFD66B;       /* Sunny yellow */
+  --light: #F5F5F5;        /* Light background */
+  --text: #2D3748;        /* Dark gray for text */
+  --text-light: #718096;   /* Lighter text */
+  --error: #E53E3E;       /* For error messages */
+}
+
+.signin-container {
+  max-width: 450px;
+  margin: 4rem auto;
+  padding: 2.5rem 3rem;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 0.6s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.signin-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+}
+
+.signin-container h4 {
+  color: var(--primary);
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 2.5rem;
+  font-weight: 700;
+  position: relative;
+}
+
+.signin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: var(--text);
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.form-group label::before {
+  content: '•';
+  color: var(--accent);
+  font-size: 1.5rem;
+}
+
+.form-group input {
+  padding: 1.1rem 1.2rem;
+  border: 2px solid #E2E8F0;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: #FAFAFA;
+}
+
+.form-group input:focus {
+  border-color: var(--primary);
+  background-color: white;
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(77, 168, 218, 0.2);
+  transform: translateY(-1px);
+}
+
+.submit-btn {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  border: none;
+  padding: 1.2rem;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+}
+
+.submit-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: 0.5s;
+}
+
+.submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.submit-btn:hover::after {
+  left: 100%;
+}
+
+.forgot-link {
+  text-align: right;
+  margin-top: -0.5rem;
+}
+
+.forgot-link a {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.forgot-link a:hover {
+  color: var(--primary);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .signin-container {
+    margin: 2rem 1.5rem;
+    padding: 2rem 1.8rem;
+  }
+  
+  .signin-container h4 {
+    font-size: 1.8rem;
+  }
+  
+  .form-group input {
+    padding: 1rem;
+  }
+} 
