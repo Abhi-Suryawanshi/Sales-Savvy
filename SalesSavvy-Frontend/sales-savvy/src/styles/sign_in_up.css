@@ -1,0 +1,88 @@
+body {
+  background: linear-gradient(120deg, #89f7fe, #66a6ff);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+  align-items: center;
+}
+
+/* Wider form */
+.auth-wrap {
+  align-items: center;
+  background: white;
+  padding:2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 500px;
+}
+
+/* Heading */
+h4 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+/* Form groups */
+.form-group {
+  margin-bottom: 1.2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Labels */
+.form-group label {
+  margin-bottom: 6px;
+  color: #444;
+  font-weight: 600;
+}
+
+/* Inputs and Selects */
+input,
+select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+input:focus,
+select:focus {
+  border-color: #66a6ff;
+  box-shadow: 0 0 5px rgba(102, 166, 255, 0.5);
+}
+
+/* Submit Button */
+button[type="submit"] {
+  padding: 12px;
+  background: #66a6ff;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  width: 100%;
+}
+
+button[type="submit"]:hover {
+  background: #4d91ff;
+}
+
+/* Responsive tweaks */
+@media (max-width: 480px) {
+  .auth-wrap {
+    padding: 1.5rem;
+    max-width: 100%;
+  }
+
+  h4 {
+    font-size: 1.5rem;
+  }
+}

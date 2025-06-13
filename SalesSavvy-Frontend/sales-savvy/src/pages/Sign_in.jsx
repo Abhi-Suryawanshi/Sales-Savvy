@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import '../styles/sign_in.css';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import '../styles/sign_in_up.css';
 
 export default function Sign_in() {
   const [username, setUsername] = useState("");
@@ -10,67 +10,59 @@ export default function Sign_in() {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    const data = {
-      username,
-      password
-    };
+    const data = { username, password };
 
     try {
-      const resp = await fetch('http://localhost:8080/signIn', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      });
+      const resp = await fetch("http://localhost:8080/signIn", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "text/plain" 
+      },
+      body: JSON.stringify(data),
+    });
 
-      const msg = await resp.text();
-      
-      if (msg === "admin") {
-        navigate('/admin_home');
-      } else if (msg === "customer") {
-        navigate('/customer_home');
+
+      const msg = await resp.text(); // This will be "admin", "customer", or an error message
+
+      if (msg === "admin" || msg === "customer") {
+        localStorage.setItem("username", username); // Username is already known from input
+        navigate(`/${msg}_home`);
       } else {
-        alert(msg);
+        alert(msg); // show error message like "wrong password"
       }
-    } catch (error) {
-      console.error("Error:", error);
-      alert("Failed to submit data");
+    } catch (err) {
+      console.error("Login error:", err);
+      alert("Could not sign in");
     }
   }
 
   return (
-    <div className="signin-container">
-      <h4>Sign In</h4>
-      <form className="signin-form" onSubmit={handleSubmit}>
+    <div className="auth-wrap center-block card mt-6">
+      <h4 className="text-center mb-4">Sign in</h4>
+
+      <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label>Username</label>
+          <label htmlFor="username">Username</label>
           <input
-            type="text"
-            name="username"
+            id="username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            required
           />
         </div>
 
         <div className="form-group">
-          <label>Password</label>
+          <label htmlFor="password">Password</label>
           <input
+            id="password"
             type="password"
-            name="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            required
           />
         </div>
 
-        <div className="forgot-link">
-          <a href="#">Forgot password?</a>
-        </div>
-
-        <button type="submit" className="submit-btn">
-          Sign In
+        <button className="btn btn-primary w-100" type="submit">
+          Log in
         </button>
       </form>
     </div>

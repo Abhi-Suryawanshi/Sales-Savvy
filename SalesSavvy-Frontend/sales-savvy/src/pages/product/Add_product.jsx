@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import '../../styles/add_product.css';
 export default function Add_product() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -43,7 +43,7 @@ export default function Add_product() {
   }
 
   return (
-    <>
+    <div className="add-product-container">
       <h4>Add product below</h4>
       <form onSubmit={handleSubmit}>
         <label>Name: </label>
@@ -93,6 +93,6 @@ export default function Add_product() {
 
         <button type="submit">Add Product</button>
       </form>
-    </>
+    </div>
   );
 }
